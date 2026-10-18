@@ -44,7 +44,7 @@ pretext build print   # 生成 PDF；另需安装 TeX Live / MacTeX
 - `project.ptx`：网页、PDF、LaTeX 构建目标。
 - `EDITORIAL.md`：来源映射、数学修订和发布前待补事项。
 
-发布网页时，部署正式构建出的 `output/web/` 全部内容到静态网站托管服务即可。当前项目未上传或公开发布。
+发布网页时，部署正式构建出的 `output/web/` 全部内容到静态网站托管服务即可。本项目通过 GitHub Actions 自动发布到 https://swang0456.github.io/lie-groups/ 。
 
 官方指南：https://pretextbook.org/doc/guide/html/tutorial-first-document.html
 
