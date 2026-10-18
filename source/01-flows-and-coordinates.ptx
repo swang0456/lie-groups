@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<chapter xml:id="flows"><title>From invariant vector fields to local coordinates</title>
+<introduction><p>The exponential map translates a tangent vector at the identity into a group element. Its construction uses an ordinary differential equation; its local invertibility then turns the Lie algebra into a coordinate model for the group.</p></introduction>
+<section xml:id="exp-prelim"><title>Preliminaries</title>
+<p>Write <m>e</m> for the identity of <m>G</m>, <m>\g=T_eG</m>, and <m>L_g(h)=gh</m>. Each tangent vector <m>X\in\g</m> uniqely determines a left-invariant vector field <m>\widetilde X_g=(L_g)_{*,e}X</m>.</p>
+
+<p>
+    Let <m>X</m> be a vector field on a manifold <m>M</m>. An integral curve through a point <m>p\in M</m> is a map <m>\gamma:I\to M</m> such that <me>
+        \gamma(t)=X_{\gamma(t)}\quad \gamma(0)=t.
+    </me>
+An integral curve is called maximal if it cannot be extended to a strictly longer interval as an integral curve. A vector field is called complete if for each point, there exists an integral curve through the point that is defined for all <m>t\in\mathbb R</m>.
+</p>
+<p>
+    Let <m>\phi:N\to M</m> be a smooth map between manifolds. A vector field <m>X</m> on <m>N</m> is <m>\phi</m>-related to a vector field <m>Y</m> on <m>M</m> if <m>\phi_{*,p}(X_p)=Y_{\phi(p)}</m> for every <m>p\in N</m>.
+</p>
+</section>
+
+<section xml:id="construction">
+<title>Integral curves and one-parameter subgroups</title>
+<p>Let <m>G</m> be a Lie group with Lie algebra <m>\g</m>. For <m>X\in\g</m>, let <m>\widetilde X</m> be the left-invariant vector field such that <m>\widetilde X_e=X</m>. Denote its maximal integral curve starting at <m>e</m> by
+<men xml:id="eq-integral-curve-notation">t\mapsto\exp_X(t).</men>
+Initially this curve is defined on an open interval <m>I=(-a,b)</m> containing <m>0</m>. Choose <m>\ve&gt;0</m> such that <m>(-\ve,\ve)\subset I</m>. By definition,
+<men xml:id="eq-integral-curve-initial-value">\exp_X(0)=e,\qquad \frac{\r d}{\r dt}\exp_X(t)=\widetilde X_{\exp_X(t)}=(L_{\exp_X(t)})_{*,e}X.</men></p>
+
+<lemma xml:id="related-curves">
+<title>Related vector fields preserve integral curves</title>
+<statement><p>Let <m>\phi:N\to M</m> be a smooth map, and let <m>X</m> and <m>Y</m> be smooth vector fields on <m>N</m> and <m>M</m>, respectively. Suppose <m>X</m> is <m>\phi</m>-related to <m>Y</m>. If <m>\gamma</m> is an integral curve of <m>X</m> starting at <m>p</m>, then <m>\phi\circ\gamma</m> is an integral curve of <m>Y</m> starting at <m>\phi(p)</m>.</p></statement>
+<proof><p>The chain rule, the integral-curve equation, and the relatedness assumption give, respectively,
+<md>
+<mrow>\frac{\r d}{\r dt}(\phi\circ\gamma)(t)\amp=\phi_{*,\gamma(t)}\bigl(\gamma'(t)\bigr)</mrow>
+<mrow>\amp=\phi_{*,\gamma(t)}\bigl(X_{\gamma(t)}\bigr)</mrow>
+<mrow>\amp=Y_{\phi(\gamma(t))}.</mrow>
+</md>
+Moreover, <m>(\phi\circ\gamma)(0)=\phi(p)</m>.</p></proof>
+</lemma>
+
+<theorem xml:id="complete">
+<title>The group law and completeness</title>
+<statement><p>For every <m>X\in\g</m>, the curve <m>t\mapsto\exp_X(t)</m> is defined on all of <m>\R</m> and satisfies
+<me>\exp_X(t+s)=\exp_X(t)\exp_X(s)\qquad(s,t\in\R).</me>
+For every <m>g\in G</m>, the curve <m>t\mapsto g\exp_X(t)</m> is the integral curve of <m>\widetilde X</m> starting at <m>g</m>. In particular, <m>\widetilde X</m> is complete.</p></statement>
+<proof><p>There are two steps.
+<ul>
+<li><p><em>Left translation gives the integral curve through any point.</em> For each <m>g\in G</m>, left invariance says that <m>\widetilde X</m> is <m>L_g</m>-related to itself:
+<me>(L_g)_{*,h}\bigl(\widetilde X_h\bigr)=\widetilde X_{gh}.</me>
+Apply <xref ref="related-curves"/> with <m>\phi=L_g</m>. Since <m>t\mapsto\exp_X(t)</m> is an integral curve of <m>\widetilde X</m> starting at <m>e</m>, the curve
+<me>t\mapsto L_g(\exp_X(t))=g\exp_X(t)</me>
+is an integral curve of the same vector field starting at <m>g</m>, on the same parameter interval.</p></li>
+<li><p><em>Uniqueness gives the group law and extends the curve.</em> Fix <m>t\in(-\ve,\ve)</m>. Consider, as functions of <m>s</m>,
+<me>s\mapsto\exp_X(t+s),\qquad s\mapsto\exp_X(t)\exp_X(s).</me>
+The first is a time translate of an integral curve; the second is a left translate, by the preceding step with <m>g=\exp_X(t)</m>. Both are integral curves of <m>\widetilde X</m> with value <m>\exp_X(t)</m> at <m>s=0</m>. Uniqueness therefore gives
+<men xml:id="eq-local-integral-curve-group-law">\exp_X(t+s)=\exp_X(t)\exp_X(s)</men>
+on their common interval of definition containing <m>0</m>.</p>
+<p>This identity lets us extend the curve from <m>(-\ve,\ve)</m> to <m>(-2\ve,2\ve)</m>: for each <m>t\in(-\ve,\ve)</m>, use the integral curve
+<me>u\mapsto\exp_X(t)\exp_X(u-t),\qquad |u-t|&lt;\ve.</me>
+It agrees with the original curve near <m>u=t</m>. Any two such extensions agree on their overlap by uniqueness, since that overlap meets <m>(-\ve,\ve)</m>. They consequently glue to one integral curve on <m>(-2\ve,2\ve)</m>. Repeating the argument extends it to <m>(-2^k\ve,2^k\ve)</m> for every <m>k\geq0</m>, hence to all of <m>\R</m>.</p>
+<p>Once the curve is global, the same uniqueness argument applies to every fixed <m>t\in\R</m> and gives the group law for all <m>s\in\R</m>. Finally, the first step shows that <m>t\mapsto g\exp_X(t)</m> exists for every real <m>t</m> and every <m>g\in G</m>. Thus <m>\widetilde X</m> is complete.</p></li>
+</ul></p>
+</proof>
+</theorem>
+
+<definition xml:id="def-exp">
+<title>The exponential map and one-parameter subgroups</title>
+<statement><p>A <term>one-parameter subgroup</term> of <m>G</m> is a continuous homomorphism <m>\R\to G</m>. The preceding theorem shows that <m>t\mapsto\exp_X(t)</m> is a smooth one-parameter subgroup. Define the <term>exponential map</term> by
+<me>\exp:\g\to G,\qquad \exp X=\exp_X(1).</me>
+When the group needs to be specified, we write <m>\exp_G</m> for this same map.</p></statement>
+</definition>
+
+<proposition xml:id="scaling">
+<title>Rescaling time</title>
+<statement><p>For <m>s,t\in\R</m>,
+<me>\exp_{sX}(t)=\exp_X(st).</me>
+Consequently,
+<me>\exp_X(t)=\exp(tX),\qquad \exp(sX)\exp(tX)=\exp((s+t)X),</me>
+<me>\exp0=e,\qquad (\exp X)^{-1}=\exp(-X).</me></p></statement>
+<proof><p>For fixed <m>s</m>, the curves <m>t\mapsto\exp_{sX}(t)</m> and <m>t\mapsto\exp_X(st)</m> both start at <m>e</m> and solve the integral-curve equation for <m>\widetilde{sX}=s\widetilde X</m>. Indeed,
+<me>\frac{\r d}{\r dt}\exp_X(st)=s\widetilde X_{\exp_X(st)}.</me>
+Uniqueness gives the first identity. Setting the time parameter equal to <m>1</m> gives <m>\exp(tX)=\exp_X(t)</m>. The other identities follow from <xref ref="complete"/>.</p></proof>
+</proposition>
+<remark><p>The flow of <m>\widetilde X</m> is <m>\Phi_t(g)=g\exp_X(t)=g\exp(tX)</m>. Thus a left-invariant vector field has a flow given by right translations. Every smooth one-parameter subgroup whose derivative at zero is <m>X</m> equals <m>t\mapsto\exp_X(t)</m>, by differentiating its group law and applying uniqueness. The regularity assertion that every continuous one-parameter subgroup is smooth is a separate result.</p></remark>
+</section>
+
+<section xml:id="local"><title>Smoothness and the local inverse</title>
+<theorem xml:id="smooth-exp"><title>Smoothness</title><statement><p>The exponential map is smooth.</p></statement><proof><p>The bundle-valued map <m>(g,X)\mapsto(dL_g)_eX</m> is smooth because it is the partial differential of the smooth multiplication map <m>G\times G\to G</m>, restricted to vectors tangent to the second factor at <m>e</m>. Thus</p><p><me>V_{(g,X)}=((dL_g)_eX,0)</me></p><p>is a smooth vector field on <m>G\times\g</m>. Its integral curve through <m>(g,X)</m> is <m>t\mapsto(g\exp_G(tX),X)</m>, defined for all <m>t</m> by <xref ref="complete"/>. The smooth flow theorem implies that its time-one map is smooth. Composing <m>X\mapsto(e,X)</m>, that time-one map, and projection to <m>G</m> proves the claim.</p></proof></theorem>
+<theorem xml:id="local-diffeo"><title>The differential at zero</title><statement><p>Under the natural identifications <m>T_0\g=\g=T_eG</m>,</p><p><me>(d\exp_G)_0=\operatorname{id}_{\g}.</me></p><p>Hence <m>\exp_G</m> is a diffeomorphism from some neighborhood of <m>0</m> onto a neighborhood of <m>e</m>.</p></statement><proof><p>For <m>X\in\g</m>,</p><p><me>(d\exp_G)_0X=\left.\frac{d}{dt}\right|_{t=0}\exp_G(tX)=\widetilde X_e=X.</me></p><p>Apply the inverse function theorem and <xref ref="smooth-exp"/>.</p></proof></theorem>
+<definition><title>Exponential coordinates</title><statement><p>Given a basis <m>X_1,\ldots,X_n</m> of <m>\g</m>, the local inverse of <m>(x_1,\ldots,x_n)\mapsto\exp_G(\sum_jx_jX_j)</m> gives coordinates of the first kind. Left translation transports this chart to any point of <m>G</m>.</p></statement></definition>
+<proposition xml:id="second-kind"><title>Coordinates of the second kind</title><statement><p>The map</p><p><me>F(x_1,\ldots,x_n)=\exp_G(x_1X_1)\cdots\exp_G(x_nX_n)</me></p><p>is a local diffeomorphism at zero. More generally, if <m>\g=\mathfrak a\oplus\mathfrak b</m> as vector spaces, <m>(X,Y)\mapsto\exp_G(X)\exp_G(Y)</m> is a local diffeomorphism at <m>(0,0)</m>.</p></statement><proof><p>Along the <m>j</m>th coordinate axis, <m>F(te_j)=\exp_G(tX_j)</m>, so <m>dF_0(e_j)=X_j</m>. For the second map, its differential at zero is <m>(X,Y)\mapsto X+Y</m>. Both differentials are linear isomorphisms; the inverse function theorem applies. The subspaces need not be Lie subalgebras.</p></proof></proposition>
+<theorem xml:id="no-small"><title>No small subgroups</title><statement><p>There is a neighborhood <m>U</m> of <m>e</m> whose only subgroup is <m>\{e\}</m>.</p></statement><proof><p>Choose a norm on <m>\g</m> and <m>r&gt;0</m> such that <m>\exp_G</m> is injective on the open ball <m>B_{2r}</m> and is a diffeomorphism there onto its image. Put <m>U=\exp_G(B_r)</m>. Suppose a subgroup <m>K\subset U</m> contains <m>\exp_G(X)\ne e</m>, with <m>0&lt;\|X\|&lt;r</m>. For <m>m=\lceil r/\|X\|\rceil</m>,</p><p><me>r\leq m\|X\|&lt;2r.</me></p><p>But <m>\exp_G(mX)=\exp_G(X)^m\in K\subset U</m>, so it equals <m>\exp_G(Y)</m> for some <m>Y\in B_r</m>. Injectivity on <m>B_{2r}</m> gives <m>mX=Y</m>, a contradiction.</p></proof></theorem>
+<example><title>A local inverse need not be global</title><p>For <m>G=S^1</m> and <m>\g=i\mathbb R</m>, <m>\exp_G(it)=e^{it}</m>. This is locally invertible at zero but has period <m>2\pi i</m>. Local invertibility does not assert global injectivity or global surjectivity for an arbitrary Lie group.</p></example>
+</section></chapter>
+

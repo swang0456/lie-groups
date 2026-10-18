@@ -1,0 +1,13 @@
+.venv/
+output/
+generated-assets/
+.cache/
+logs/
+.error*.log
+.DS_Store
+
+.preview/
+__pycache__/
+
+backups/
+assets/images/exponential-integral-curve.png

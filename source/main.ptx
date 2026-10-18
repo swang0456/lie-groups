@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pretext xml:lang="en-US">
+<docinfo><macros>\newcommand{\g}{\mathfrak{g}}
+\newcommand{\h}{\mathfrak{h}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\ve}{\varepsilon}
+\renewcommand{\r}{\mathrm}
+</macros></docinfo>
+<book xml:id="math285-exponential-map">
+<title>The Exponential Map</title><subtitle>From Flows to Matrix Lie Groups</subtitle>
+<frontmatter><bibinfo/><titlepage><titlepage-items/></titlepage><preface xml:id="preface"><title>About this chapter</title>
+<p>This short textbook develops the material of MATH 285, Lectures 8 and 9, into a single connected account. The source lectures are <em>The Exponential Map, Part I</em> (September 26, 2026) and <em>The Exponential Map, Part II</em> (October 8, 2026). Their author is not identified here because the supplied title pages do not name one. Proofs have been reorganized and expanded; examples and exercises marked as supplementary were written for this edition.</p>
+<p>Prerequisites are smooth manifolds, tangent maps, local flows and uniqueness of integral curves, the inverse function theorem, and basic Lie groups and Lie algebras. For the statement about immersed Lie subgroups we also use the initial-submanifold property of integral leaves of an involutive distribution. All Lie groups are finite-dimensional real Lie groups; complex matrix groups may be viewed as real Lie groups.</p>
+<p>This is an editorial draft for further author review. Attribution and permission for the underlying lecture material must be settled before public distribution. No open-content license is asserted by this draft.</p>
+</preface></frontmatter>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="01-flows-and-coordinates.ptx"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="02-homomorphisms-and-subgroups.ptx"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="03-matrix-exponentials.ptx"/><backmatter><references xml:id="references"><title>Sources and further reading</title>
+<biblio type="raw" xml:id="lecture8">MATH 285. <title>The Exponential Map, Part I</title>. Lecture 8, September 26, 2026. Supplied course notes, printed pages 1–6.</biblio>
+<biblio type="raw" xml:id="lecture9">MATH 285. <title>The Exponential Map, Part II</title>. Lecture 9, October 8, 2026. Supplied course notes, pages 1–9.</biblio>
+<biblio type="raw" xml:id="tu">Loring W. Tu. <title>An Introduction to Manifolds</title>. Second edition. Springer, 2011. Section 15.3 is cited by Lecture 9 for matrix exponentials.</biblio>
+<biblio type="raw" xml:id="warner">Frank W. Warner. <title>Foundations of Differentiable Manifolds and Lie Groups</title>. Springer, 1983.</biblio>
+<biblio type="raw" xml:id="helgason">Sigurdur Helgason. <title>Differential Geometry, Lie Groups, and Symmetric Spaces</title>. American Mathematical Society, 2001.</biblio>
+</references></backmatter></book></pretext>

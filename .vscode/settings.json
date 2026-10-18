@@ -1,0 +1,12 @@
+{
+    "xml.downloadExternalResources.enabled": true,
+    "xml.fileAssociations": [
+        {
+            "pattern": "**/source/**.ptx",
+            "systemId": "/Users/badanm2/.ptx/schema/pretext.rng"
+        }
+    ],
+    "editor.wordWrap": "on",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1200
+}
