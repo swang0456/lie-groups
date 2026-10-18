@@ -18,9 +18,9 @@ An integral curve is called maximal if it cannot be extended to a strictly longe
 <section xml:id="construction">
 <title>Integral curves and one-parameter subgroups</title>
 <p>Let <m>G</m> be a Lie group with Lie algebra <m>\g</m>. For <m>X\in\g</m>, let <m>\widetilde X</m> be the left-invariant vector field such that <m>\widetilde X_e=X</m>. Denote its maximal integral curve starting at <m>e</m> by
-<men xml:id="eq-integral-curve-notation">t\mapsto\exp_X(t).</men>
+<me>t\mapsto\exp_X(t).</me>
 Initially this curve is defined on an open interval <m>I=(-a,b)</m> containing <m>0</m>. Choose <m>\ve&gt;0</m> such that <m>(-\ve,\ve)\subset I</m>. By definition,
-<men xml:id="eq-integral-curve-initial-value">\exp_X(0)=e,\qquad \frac{\r d}{\r dt}\exp_X(t)=\widetilde X_{\exp_X(t)}=(L_{\exp_X(t)})_{*,e}X.</men></p>
+<me>\exp_X(0)=e,\qquad \frac{\r d}{\r dt}\exp_X(t)=\widetilde X_{\exp_X(t)}=(L_{\exp_X(t)})_{*,e}X.</me></p>
 
 <lemma xml:id="related-curves">
 <title>Related vector fields preserve integral curves</title>
@@ -49,7 +49,7 @@ is an integral curve of the same vector field starting at <m>g</m>, on the same 
 <li><p><em>Uniqueness gives the group law and extends the curve.</em> Fix <m>t\in(-\ve,\ve)</m>. Consider, as functions of <m>s</m>,
 <me>s\mapsto\exp_X(t+s),\qquad s\mapsto\exp_X(t)\exp_X(s).</me>
 The first is a time translate of an integral curve; the second is a left translate, by the preceding step with <m>g=\exp_X(t)</m>. Both are integral curves of <m>\widetilde X</m> with value <m>\exp_X(t)</m> at <m>s=0</m>. Uniqueness therefore gives
-<men xml:id="eq-local-integral-curve-group-law">\exp_X(t+s)=\exp_X(t)\exp_X(s)</men>
+<me>\exp_X(t+s)=\exp_X(t)\exp_X(s)</me>
 on their common interval of definition containing <m>0</m>.</p>
 <p>This identity lets us extend the curve from <m>(-\ve,\ve)</m> to <m>(-2\ve,2\ve)</m>: for each <m>t\in(-\ve,\ve)</m>, use the integral curve
 <me>u\mapsto\exp_X(t)\exp_X(u-t),\qquad |u-t|&lt;\ve.</me>
