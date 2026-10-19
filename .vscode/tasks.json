@@ -4,8 +4,10 @@
     {
       "label": "PreTeXt: Build web",
       "type": "shell",
-      "command": "${workspaceFolder}/.venv/bin/pretext",
+      "command": "${workspaceFolder}/.venv/bin/python",
       "args": [
+        "-m",
+        "pretext",
         "build",
         "web"
       ],
@@ -18,8 +20,10 @@
     {
       "label": "PreTeXt: View web",
       "type": "shell",
-      "command": "${workspaceFolder}/.venv/bin/pretext",
+      "command": "${workspaceFolder}/.venv/bin/python",
       "args": [
+        "-m",
+        "pretext",
         "view",
         "web"
       ],
@@ -28,8 +32,10 @@
     {
       "label": "PreTeXt: Export LaTeX",
       "type": "shell",
-      "command": "${workspaceFolder}/.venv/bin/pretext",
+      "command": "${workspaceFolder}/.venv/bin/python",
       "args": [
+        "-m",
+        "pretext",
         "build",
         "latex"
       ],

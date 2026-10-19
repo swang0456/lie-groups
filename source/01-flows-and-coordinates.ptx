@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<chapter xml:id="flows"><title>From invariant vector fields to local coordinates</title>
+<chapter xml:id="flows"><title>The exponential map</title>
 <introduction><p>The exponential map translates a tangent vector at the identity into a group element. Its construction uses an ordinary differential equation; its local invertibility then turns the Lie algebra into a coordinate model for the group.</p></introduction>
 <section xml:id="exp-prelim"><title>Preliminaries</title>
 <p>Write <m>e</m> for the identity of <m>G</m>, <m>\g=T_eG</m>, and <m>L_g(h)=gh</m>. Each tangent vector <m>X\in\g</m> uniqely determines a left-invariant vector field <m>\widetilde X_g=(L_g)_{*,e}X</m>.</p>
@@ -25,7 +25,7 @@ Initially this curve is defined on an open interval <m>I=(-a,b)</m> containing <
 <lemma xml:id="related-curves">
 <title>Related vector fields preserve integral curves</title>
 <statement><p>Let <m>\phi:N\to M</m> be a smooth map, and let <m>X</m> and <m>Y</m> be smooth vector fields on <m>N</m> and <m>M</m>, respectively. Suppose <m>X</m> is <m>\phi</m>-related to <m>Y</m>. If <m>\gamma</m> is an integral curve of <m>X</m> starting at <m>p</m>, then <m>\phi\circ\gamma</m> is an integral curve of <m>Y</m> starting at <m>\phi(p)</m>.</p></statement>
-<proof><p>The chain rule, the integral-curve equation, and the relatedness assumption give, respectively,
+<proof><p>Compute, by the chain rule and definitions of integral curves and related vector fields,
 <md>
 <mrow>\frac{\r d}{\r dt}(\phi\circ\gamma)(t)\amp=\phi_{*,\gamma(t)}\bigl(\gamma'(t)\bigr)</mrow>
 <mrow>\amp=\phi_{*,\gamma(t)}\bigl(X_{\gamma(t)}\bigr)</mrow>
@@ -50,32 +50,41 @@ is an integral curve of the same vector field starting at <m>g</m>, on the same 
 <me>s\mapsto\exp_X(t+s),\qquad s\mapsto\exp_X(t)\exp_X(s).</me>
 The first is a time translate of an integral curve; the second is a left translate, by the preceding step with <m>g=\exp_X(t)</m>. Both are integral curves of <m>\widetilde X</m> with value <m>\exp_X(t)</m> at <m>s=0</m>. Uniqueness therefore gives
 <me>\exp_X(t+s)=\exp_X(t)\exp_X(s)</me>
-on their common interval of definition containing <m>0</m>.</p>
-<p>This identity lets us extend the curve from <m>(-\ve,\ve)</m> to <m>(-2\ve,2\ve)</m>: for each <m>t\in(-\ve,\ve)</m>, use the integral curve
-<me>u\mapsto\exp_X(t)\exp_X(u-t),\qquad |u-t|&lt;\ve.</me>
-It agrees with the original curve near <m>u=t</m>. Any two such extensions agree on their overlap by uniqueness, since that overlap meets <m>(-\ve,\ve)</m>. They consequently glue to one integral curve on <m>(-2\ve,2\ve)</m>. Repeating the argument extends it to <m>(-2^k\ve,2^k\ve)</m> for every <m>k\geq0</m>, hence to all of <m>\R</m>.</p>
-<p>Once the curve is global, the same uniqueness argument applies to every fixed <m>t\in\R</m> and gives the group law for all <m>s\in\R</m>. Finally, the first step shows that <m>t\mapsto g\exp_X(t)</m> exists for every real <m>t</m> and every <m>g\in G</m>. Thus <m>\widetilde X</m> is complete.</p></li>
+for all sufficiently small <m>s</m>.</p>
+<p>This identity allows us to extend the integral curve <m>t\mapsto\exp_X(t)</m> from <m>(-\ve,\ve)</m> to <m>(-2\ve,2\ve)</m>: the values at a sum <m>t+s</m> are supplied by the product <m>\exp_X(t)\exp_X(s)</m>. Repeating the same argument inductively extends the curve to all of <m>\R</m>.</p>
+<p>Therefore, <m>t\mapsto g\exp_X(t)</m> exists for every real <m>t</m> and every <m>g\in G</m>, so <m>\widetilde X</m> is complete.</p></li>
 </ul></p>
 </proof>
 </theorem>
 
-<definition xml:id="def-exp">
-<title>The exponential map and one-parameter subgroups</title>
-<statement><p>A <term>one-parameter subgroup</term> of <m>G</m> is a continuous homomorphism <m>\R\to G</m>. The preceding theorem shows that <m>t\mapsto\exp_X(t)</m> is a smooth one-parameter subgroup. Define the <term>exponential map</term> by
-<me>\exp:\g\to G,\qquad \exp X=\exp_X(1).</me>
-When the group needs to be specified, we write <m>\exp_G</m> for this same map.</p></statement>
+<definition xml:id="def-one-parameter-subgroup">
+<title>One-parameter subgroups</title>
+<statement><p>A <term>one-parameter subgroup</term> of <m>G</m> is a continuous homomorphism <m>\R\to G</m>.</p></statement>
 </definition>
+<p>The preceding theorem shows that <m>t\mapsto\exp_X(t)</m> is a one-parameter subgroup. We write <m>\exp X=\exp_X(1)</m>.</p>
+
 
 <proposition xml:id="scaling">
 <title>Rescaling time</title>
 <statement><p>For <m>s,t\in\R</m>,
 <me>\exp_{sX}(t)=\exp_X(st).</me>
 Consequently,
-<me>\exp_X(t)=\exp(tX),\qquad \exp(sX)\exp(tX)=\exp((s+t)X),</me>
-<me>\exp0=e,\qquad (\exp X)^{-1}=\exp(-X).</me></p></statement>
-<proof><p>For fixed <m>s</m>, the curves <m>t\mapsto\exp_{sX}(t)</m> and <m>t\mapsto\exp_X(st)</m> both start at <m>e</m> and solve the integral-curve equation for <m>\widetilde{sX}=s\widetilde X</m>. Indeed,
-<me>\frac{\r d}{\r dt}\exp_X(st)=s\widetilde X_{\exp_X(st)}.</me>
-Uniqueness gives the first identity. Setting the time parameter equal to <m>1</m> gives <m>\exp(tX)=\exp_X(t)</m>. The other identities follow from <xref ref="complete"/>.</p></proof>
+<me>\exp_X(t)=\exp(tX),\quad \exp(sX)\exp(tX)=\exp((s+t)X),\quad (\exp tX)^{-1}=\exp(-tX).</me></p></statement>
+<proof>
+<p>Fix <m>s\in\R</m>. We show that the curves <m>t\mapsto\exp_{sX}(t)</m> and <m>t\mapsto\exp_X(st)</m> are integral curves of the same vector field <m>\widetilde{sX}=s\widetilde X</m><fn>Here <m>\widetilde{sX}=s\widetilde X</m> because the differential of left multiplication is linear: for every <m>g\in G</m>,
+<m>\widetilde{sX}_g=(L_g)_{*,e}(sX)=s(L_g)_{*,e}X=s\widetilde X_g.</m></fn>, both starting at <m>e</m>.</p>
+<p>Indeed, for any <m>t\in\R</m>, the definition of <m>\exp_{sX}</m> gives
+<me>\frac{\r d}{\r dt}\exp_{sX}(t)=\widetilde{sX}_{\exp_{sX}(t)}.</me>
+On the other hand, by the chain rule,
+<md>
+<mrow>\frac{\r d}{\r dt}\exp_X(st)\amp=(\exp_X)'(st)\cdot s</mrow>
+<mrow>\amp=s\,\widetilde X_{\exp_X(st)}</mrow>
+<mrow>\amp=\widetilde{sX}_{\exp_X(st)}.</mrow>
+</md>
+
+Since both curves take the value <m>e</m> at <m>t=0</m>, uniqueness of integral curves gives <m>\exp_{sX}(t)=\exp_X(st)</m>.</p>
+<p>In the identity just proved, set the time parameter equal to <m>1</m> and replace the scalar <m>s</m> by <m>t</m>. Then <m>\exp(tX)=\exp_{tX}(1)=\exp_X(t)</m>. The remaining identities follow from <xref ref="complete"/>.</p>
+</proof>
 </proposition>
 <remark><p>The flow of <m>\widetilde X</m> is <m>\Phi_t(g)=g\exp_X(t)=g\exp(tX)</m>. Thus a left-invariant vector field has a flow given by right translations. Every smooth one-parameter subgroup whose derivative at zero is <m>X</m> equals <m>t\mapsto\exp_X(t)</m>, by differentiating its group law and applying uniqueness. The regularity assertion that every continuous one-parameter subgroup is smooth is a separate result.</p></remark>
 </section>
